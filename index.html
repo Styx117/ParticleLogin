@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<div id="particles-js"></div>
+	<script src="particles.min.js"></script>
+	<script src="app.js"></script>
+	<style>
+		body{
+			background-color: #170038;
+			position: relative;
+		}
+		.loginCard{
+			position: absolute;
+			top: 35%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			padding: 50px 30px;
+			background-color: #00000000;
+			border-radius: 20px;
+			box-shadow: 3px 3px 5px 6px #000;
+		}
+
+		input{
+			border:none;
+			border-bottom: 1px solid #cdcdcd;
+			background-color:#fff0;
+			outline: none;
+			text-shadow: none;
+			box-shadow: none;
+			margin-top: 50px;
+			color:#fff;
+			font-size: 26px;
+		}
+		.btn {
+			margin-top:50px;
+			outline: 0;
+			position: relative;
+			display: inline-block;
+			padding: 5px 10px;
+			font-size: 20px;
+			overflow: hidden;
+			cursor: pointer;
+			border: 2px solid #8000ff;
+			background: #8000ff;
+			color: #000;
+			font-weight: 600;
+			transition: box-shadow 0.5s ease-in-out, border-color 0.5s ease-in-out;
+			width: 100%;
+		}
+		.btn:hover {
+			background-color: #8000ff;
+			color: #000;
+			box-shadow: 0 0 5px #8000ff,
+			0 0 20px rgb(128 0 225 / 0.8),
+			0 0 35px rgb(128 0 225 / 0.7),
+			0 0 50px rgb(128 0 225 / 0.6);
+			border-color: #8000ff;
+		}
+		#ErrorMessage{
+			color:red;
+			display: none;
+		}
+		@keyframes enlarge{
+			to{
+				transform: scale(2);
+			}
+		}
+		.imageLarge{
+			animation: enlarge 3s forwards;
+		}
+		.hidden {
+			visibility: hidden;
+			opacity: 0;
+			transition: visibility 0s 1s, opacity 1s linear;
+		}
+	</style>
+</head>
+<body>
+	<div id="particles-js"></div>
+	<div class="loginCard">
+		<img id="image" src="test.svg" style="width: 320px;"><br>
+		<p style="margin:0px;" id="ErrorMessage">Please ensure all fields are filled</p>
+		<input placeholder="Username" id="Uname" class="form-control" type="text"><br>
+		<input placeholder="Password" id="Pass" class="form-control" type="password"><br>
+		<button id="BtnBtn" class="btn" onclick="login()">Submit</button>
+	</div>
+</body>
+<script>
+	function login(){
+		if (document.getElementById("Uname").value == "" || document.getElementById("Pass").value == ""){
+			document.getElementById("ErrorMessage").style.display = "block";
+		}
+		else{
+			document.getElementById("ErrorMessage").style.display = "none";
+			document.getElementById("Uname").classList.add('hidden');
+			document.getElementById("Pass").classList.add('hidden');
+			document.getElementById("BtnBtn").classList.add('hidden');
+
+			document.getElementsByClassName("loginCard")[0].style.boxShadow = "none";
+			document.getElementById("image").classList.add('imageLarge');
+
+		}
+	}
+</script>
+</html>
