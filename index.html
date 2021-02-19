@@ -73,16 +73,37 @@
 			opacity: 0;
 			transition: visibility 0s 1s, opacity 1s linear;
 		}
+		#particles-js{
+			width: 100%;
+			height: 100%;
+			position: fixed;
+			background-image: url('');
+			background-size: cover;
+			background-position: 50% 50%;
+			background-repeat: no-repeat;
+		}
+		@media only screen and (max-width: 600px) {
+			.loginCard{
+				padding: 50px 10px;
+				top: 50%;
+			}
+			@keyframes enlarge{
+				to{
+					transform: scale(1.2);
+				}
+			}
+		}
 	</style>
 </head>
 <body>
-	<div id="particles-js"></div>
-	<div class="loginCard">
-		<img id="image" src="test.svg" style="width: 320px;" alt="logo"><br>
-		<p style="margin:0px;" id="ErrorMessage">Please ensure all fields are filled</p>
-		<input placeholder="Username" id="Uname" class="form-control" type="text"><br>
-		<input placeholder="Password" id="Pass" class="form-control" type="password"><br>
-		<button id="BtnBtn" class="btn" onclick="login()">Submit</button>
+	<div id="particles-js">
+		<div class="loginCard">
+			<img id="image" src="test.svg" style="width: 320px;" alt="logo"><br>
+			<p style="margin:0px;" id="ErrorMessage">Please ensure all fields are filled</p>
+			<input placeholder="Username" id="Uname" class="form-control" type="text"><br>
+			<input placeholder="Password" id="Pass" class="form-control" type="password"><br>
+			<button id="BtnBtn" class="btn" onclick="login()">Submit</button>
+		</div>
 	</div>
 	<script src="particles.min.js"></script>
 	<script src="app.js"></script>
