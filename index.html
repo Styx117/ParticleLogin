@@ -4,9 +4,6 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Document</title>
-	<div id="particles-js"></div>
-	<script src="particles.min.js"></script>
-	<script src="app.js"></script>
 	<style>
 		body{
 			background-color: #170038;
@@ -81,32 +78,33 @@
 <body>
 	<div id="particles-js"></div>
 	<div class="loginCard">
-		<img id="image" src="test.svg" style="width: 320px;"><br>
+		<img id="image" src="test.svg" style="width: 320px;" alt="logo"><br>
 		<p style="margin:0px;" id="ErrorMessage">Please ensure all fields are filled</p>
 		<input placeholder="Username" id="Uname" class="form-control" type="text"><br>
 		<input placeholder="Password" id="Pass" class="form-control" type="password"><br>
 		<button id="BtnBtn" class="btn" onclick="login()">Submit</button>
 	</div>
+	<script src="particles.min.js"></script>
+	<script src="app.js"></script>
+	<script>
+		function login(){
+			if (document.getElementById("Uname").value == "" || document.getElementById("Pass").value == ""){
+				document.getElementById("ErrorMessage").style.display = "block";
+			}
+			else{
+				document.getElementById("ErrorMessage").style.display = "none";
+				document.getElementById("Uname").classList.add('hidden');
+				document.getElementById("Pass").classList.add('hidden');
+				document.getElementById("BtnBtn").classList.add('hidden');
+
+				document.getElementsByClassName("loginCard")[0].style.boxShadow = "none";
+				document.getElementsByClassName("loginCard")[0].style.height = "0px";
+				document.getElementsByClassName("loginCard")[0].style.padding = "0px";
+
+				document.getElementById("image").classList.add('imageLarge');
+
+			}
+		}
+	</script>
 </body>
-<script>
-	function login(){
-		if (document.getElementById("Uname").value == "" || document.getElementById("Pass").value == ""){
-			document.getElementById("ErrorMessage").style.display = "block";
-		}
-		else{
-			document.getElementById("ErrorMessage").style.display = "none";
-			document.getElementById("Uname").classList.add('hidden');
-			document.getElementById("Pass").classList.add('hidden');
-			document.getElementById("BtnBtn").classList.add('hidden');
-
-			document.getElementsByClassName("loginCard")[0].style.boxShadow = "none";
-			document.getElementsByClassName("loginCard")[0].style.height = "0px";
-			document.getElementsByClassName("loginCard")[0].style.padding = "0px";
-			
-			
-			document.getElementById("image").classList.add('imageLarge');
-
-		}
-	}
-</script>
 </html>
